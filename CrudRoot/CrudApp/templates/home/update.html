@@ -1,0 +1,114 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Django's product page</title>
+
+</head>
+
+<body>
+ 
+    <style>
+       html{
+    background-image: linear-gradient(to left, rgb(37, 166, 236), rgb(122, 16, 176));
+  }
+  
+     
+    #logout{
+    color: white;
+    }
+   #logoutcontainer{
+   background-color: green;
+   }
+   #product_name{
+    width: 400px;
+    height: 60px;
+    display: flex;
+    border:8px solid lightblue ;
+    border-radius: 15px;
+    text-align: center;
+    align-self: center;
+    justify-self: center;
+
+    font-size: x-large;
+    font-weight: 400;
+    font-family: Arial, Helvetica, sans-serif;
+   }
+   #product_description{
+    width: 500px;
+     display: flex;
+    text-align: center;
+    align-self: center;
+    border:5px solid lightblue ;
+    border-radius: 15px;
+    justify-self: center;
+    
+    height: 120px;
+    font-size: x-large;
+    font-weight: 400;
+    font-family: Arial, Helvetica, sans-serif;
+   }
+   #product_image{
+    width: 400px;
+    display: flex;
+    text-align: center;
+    align-self: center;
+    justify-self: center;
+    color: white;
+    padding: 10px;
+    height: 60px;
+    border:8px solid lightblue ;
+    border-radius: 15px;
+    font-size: x-large;
+    font-weight: 400;
+    font-family: Arial, Helvetica, sans-serif;
+   }
+   #add_product{
+    width: 300px;
+    display: block;
+    text-align: center;
+    align-self: center;
+    justify-self: center;
+    border:8px solid lightblue ;
+    border-radius: 15px;
+    background-color: rgb(27, 197, 27);
+    height: 90px;
+  
+    font-size: x-large;
+    font-weight: 400;
+    font-family: Arial, Helvetica, sans-serif
+   }
+      
+    </style>
+  
+  <h1 align="center">Remove or Change your Product!</h1>
+  
+        
+
+    <br>
+    <table><div id="divname">
+    <form action="" method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+      <table>
+    <input type="text" name="product_name" value="{{update.product_name}}"  required placeholder="{{update.product_name}}" id="product_name"></div>
+    <br>
+    <br>
+    
+    <div id="divdescription">
+    <textarea align="center" required placeholder="Write something about your product!" name="product_description" id="product_description">{{update.product_description}}</textarea></div>
+    
+    <h2 align="center"></h2>
+    <input align="center" type="file" value="{{ update.product_image }}" alt="{{update.product_image}}"  name="product_image" id="product_image">
+    
+    <div id="divbutton">
+  <br>
+     <button id="add_product" type="submit" name="update_product" > Save Changes </button>
+     </table>
+    </div>
+  </form>
+  
+<br>
+<br>
+<br>
