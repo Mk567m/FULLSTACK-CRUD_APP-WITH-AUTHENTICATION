@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login page</title>
+</head>
+<body>
+  <style>
+    
+    
+    #email{
+      font-size: 20px;
+      width: 400px;
+      padding: 12px;
+      margin-left: 35%;
+      height: 30px;
+      margin-top: 10px;
+      margin-bottom: 15px;
+      border-radius: 20px;
+    }
+    #password{
+      font-size: 20px;
+      width: 400px;
+      border-radius: 20px;
+      margin-left: 35%;
+      padding: 12px;
+      height: 30px;
+      margin-top: 10px;
+      margin-bottom: 15px;
+    }
+    label{
+      font-weight: 500;
+      font-size: x-large;
+      margin-left: 45%;
+      color: rgb(44, 6, 6);
+    }
+    #button{
+      font-size: x-large;
+      width: 200px;
+      height: 55px;
+      margin-left: 42%;
+      border-radius: 10px;
+      
+      padding: 10px;
+      margin-top: 3%;
+      font-weight: 700;
+      color: white;
+      background-color: rgb(16, 169, 16);
+    }
+  </style>
+        <br>
+        <div><h1 align="center">Welcome back!</h1>
+        <br>
+        <hr>
+        <h1 align="center">Login or Sign-in</h1></div>
+
+       
+         
+         
+          <div>
+           <form action="" method="post">
+            {{ form.username.label_tag }} {{ form.username }}
+          <br>
+            {{ form.password.label_tag }} {{ form.password }}
+
+            {% csrf_token %}
+            
+          {%if messages %}
+            {%for message in messages%}
+          <div align="center" 
+          style="display: block; justify-self: center; align-self: center;font-weight: 500s;
+            text-align:center;margin-left: 0px;font-size: x-large;"><h5  style="color: rgb(252, 47, 47);font-weight: 500">{{message}}</h5></div>
+            {%endfor%}
+          {%endif%}  
+            
+            <form action="" id="form_self" method="post" enctype="multipart/form-data">
+              {% csrf_token %}
+              <div><label align="center" for="username">Username</label></div>
+              
+              <div><input type="text" required placeholder="Enter your Username" name="username" id="email"></div>
+              <br>
+        <div><label align="center" for="password">Password</label></div>
+              
+        <div><input type="password" required placeholder="Enter your Password" name="password" id="password"></div>   
+        <p align="center" style="margin-left: 0%;font-size: large;">Don't have account <a href="/register/">Register</a></p>
+       
+        <!-- This is comment for toggle password visibility!!
+        <div align="center" style="margin-left: 0%;font-size: large;">
+          <input type="checkbox" id="togglePassword">
+          <label for="togglePassword">Show Password</label>-->
+        <button  id="button"  type="submit">Login</button>   </form>
+      
+       <!-- <script>
+                const passwordInput = document.querySelector('input[name="password"]');
+                const toggle = document.getElementById('togglePassword');
+
+                toggle.addEventListener('change', function () {
+                passwordInput.type = this.checked ? 'text' : 'password';
+               });
+
+        </script>-->
+        </form>
+      </form>
+</body>
+</html>

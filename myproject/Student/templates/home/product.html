@@ -1,0 +1,304 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Django's product page</title>
+
+</head>
+
+<body>
+ 
+    <style>
+       html{
+    background-image: linear-gradient(to left, rgb(37, 166, 236), rgb(122, 16, 176));
+  }
+      .image-container img{
+        width: auto;
+        height: 100px;
+        transition: transform 1s;
+      }
+      .image-container img:focus{
+        transform: scale(2.3);
+        outline:none;
+      }
+      #fields{
+        background-image: linear-gradient(to right, rgb(220, 118, 23),rgb(114, 19, 191));
+        margin-right: 20%;
+        width: 720px; 
+        height: 600px;
+        margin-left:25%;
+        
+        border-radius: 40px;
+        border: 18px solid aliceblue;
+        border-style: ridge;
+      }
+      
+      #product_name{
+        text-align: center;
+        
+        
+        border-radius: 40px;
+        margin-left: 18%;
+        margin-top: 3px;
+        font-size: 17px;
+        padding: 15px;
+        border: 10px solid rgb(162, 103, 226);
+        display: inline;
+        align-items: center;
+        width: 390px;
+        justify-content: center;
+        text-align: center;
+        
+        
+      }
+      #product_description{
+        font-family: Arial, Helvetica, sans-serif;
+        margin-right: 0%;
+        margin-left:18%;
+        font-size: 15px;
+        width: 400px;
+        height: 200px;
+        border: 12px solid rgb(162, 103, 226);
+        border-radius: 15px;
+        padding: 14px;
+        
+        
+
+      }
+      
+      #product_image{
+        margin-left: 24%;
+        margin-right: 23%;
+        border: 5px solid rgb(189, 117, 221);
+        font-size: 18px;
+        border-radius: 30px;
+        padding: 10px;
+        display: flex;
+
+      }
+      table{
+        border: 3px solid rgb(84, 202, 235);
+        color: black;
+        border-collapse:collapse;
+        background-image: linear-gradient(to right, rgb(251, 249, 249),rgb(103, 96, 96));
+        width: 90%;
+        height: 50%;
+        
+
+      }
+      
+      
+      #Add_product{
+        font-size: 23px;
+        width: 200px;
+        border: 12px solid rgb(162, 103, 226);
+        border-radius: 30px;
+        height: 50px;
+        background-color: rgb(202, 174, 227);
+        text-align: center;
+        margin-right: 26%;
+        border: 8px outset yellow;
+        margin-left:35%;
+        height: 85px;
+        transition: transform(0.2s);
+        
+        
+      }   
+      #Add_product:focus {
+        transform: scale(0.6);
+        transition-duration: 0.5s;
+      }  
+      
+      #headers{
+        padding: 12px;
+      }
+      #tableimage{
+        display: flex;
+        width: 250px;
+        justify-content: center;
+        align-self: center;
+        height: 180px;
+        justify-self: center;
+      }
+      #searchbar{
+        background-color: rgba(255, 255, 255, 0.929);
+        font-size: x-large;
+        width: 500px;
+        height: 40px;
+        border: 10px double gray;
+
+
+      }
+      #searchlabel{
+        font-size: x-large;
+        color: white;
+
+        font-weight: 600;
+        margin-left: 30%;
+      }
+      #searchform{
+        display: block;
+        justify-self: center;
+      }
+     
+      #delbutton{
+        text-decoration: none;
+        color: rgb(255, 64, 64); 
+        padding: 10px; 
+        background-image: linear-gradient(to left, rgb(251, 249, 249),rgb(103, 96, 96));      
+      }
+
+      #delete_button{
+        font-size:xx-large;
+
+        padding: 15px;
+        color: white;
+        padding: 20px;
+        background-color: red;
+        text-decoration: none;
+      }
+
+      
+      
+      #update_container{
+       background-image: linear-gradient(to left, rgb(251, 249, 249),rgb(103, 96, 96));      
+       text-decoration: none;
+       color: white;
+       font-size: xx-large;
+       height: 200px;
+       padding: 10px;
+        
+        
+      }
+      #update_button{
+        padding: 20px;
+
+        color: white;
+        text-decoration: none;
+        background-color: rgb(4, 95, 169);
+
+      }
+      #search_button{
+        font-size: x-large;
+        font-weight: 500;
+        padding: 8px;
+        
+      }
+      #search_label{
+        font-size: 30px;
+        font-weight: 600;
+        color: rgb(255, 255, 255);
+        margin-left: 30%;
+
+      }
+    #search_input{
+      width: 600px;
+      height: 40px;
+      border-radius: 15px;
+      padding-top: 5px;
+      padding-left: 10px;
+      font-size: x-large;
+      font-weight: 400;
+      border: 6px double grey blue;
+
+    }
+      
+    </style>
+  
+  <h1 align="center">Add product to Your Cart and take a view in Bottom</h1>
+  
+  
+  <form id="fields"  enctype="multipart/form-data" method="post" >
+    {% csrf_token %}
+  
+    <br>
+    <div id="divname">
+    <input type="text" name="product_name" required placeholder="Enter Product name" id="product_name"></div>
+    <br>
+    <br>
+    
+    <div id="divdescription">
+    <textarea align="center" required placeholder="Write something about your product!" name="product_description" id="product_description"></textarea></div>
+    <br>
+    <br>
+    
+    <input align="center" type="file" name="product_image" id="product_image">
+    
+      <br>
+      <br>
+      
+    <div id="divbutton">
+     <button id="Add_product" type="submit" name="Add_product" > Add to Cart </button></div>
+  </form>
+<br>
+<br>
+<br>
+<form  id="searchform"  method="get" >
+
+  <div style="display: block; justify-self: center;">
+  
+
+  <label align="center" id="search_label" for="searchbar">Find your product:</label>
+  <br>
+  <br>
+
+  <input  type="text"   name="search_input"   id="search_input">
+
+
+   <button type="submit" name="search_button"  id="search_button">Search</button>
+  </div>
+</form>
+
+<br>
+<h1 style="font-size: 2.1em; color: white;font-weight: 800;font-family: Arial, Helvetica, sans-serif;" align="center">YOUR ORDERS:</h1>
+  <table  cellpadding="5" cellspacing="0"  align="center" >
+    <thead>
+    <tbody>
+    
+    
+      <th scope="col">Product ID</th>
+      <th scope="col">Product Name</th>
+      <th scope="col">Product Description</th>
+      <th scope="col">Product Image (Preview)</th>
+      <th scope="col">Action</th>
+      
+   
+  </thead>
+  </tbody>  
+  <tbody>
+  
+    {% for product in product %}
+    
+    <tr id="specifics">
+      <td scope="row">{{forloop.counter}}</td>
+      <td>{{product.product_name}}</td>
+      <td>{{product.product_description}}</td>
+      <td>
+        {% if product.product_image %}
+       <div class="image-container"> <img id="tableimage" src="{{product.product_image.url}}" name="product_image" alt="{{product.product_image.url}}" tabindex="0"></div>
+        {%else%}
+        <div style="background-color: rgb(236, 244, 247);width:  252px; height: 90px;
+        padding-top: 10%;display: block;justify-self: center;"><p style="text-align: center;color: rgb(4, 3, 3);font-size: 24px;font-weight: 500;">No image Given</p></div>
+        
+        {% endif %}
+      </td>
+       
+        
+        <form action="" enctype="multipart/form-data" method="post"></form>
+        {% csrf_token %}
+        <td 
+         
+         id="delbutton" ><a id="delete_button" href="{% url 'delete_product' product.id%}" class="btn btn-danger">delete</a>
+
+        </td>
+        <td 
+         
+         id="update_container" ><a id="update_button" href="{% url 'update_product' product.id%}" class="btn btn-success">update</a>
+        </td>
+    </tr>
+        {%endfor%}  
+    </tbody>
+    
+  </table>

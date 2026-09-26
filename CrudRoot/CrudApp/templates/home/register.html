@@ -1,0 +1,159 @@
+{%load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registration page</title>
+</head>
+<body>
+  <style>
+    body{
+      background:url("{% static 'background2.jpg' %}");
+      background-size:cover;
+
+    }
+    #logout{
+        
+    font-size: 2em;
+    font-weight: 600;
+    color: rgb(18, 3, 3);
+    text-decoration: none;
+    text-align: center;
+    padding-bottom: 50px;
+    color: white;
+
+    }
+    #logoutcontainer{
+    width: 200px;
+    text-align: center;
+    height:39px;
+    padding: 10px;
+    border: 5px outset;
+    background-color: green;
+
+    }
+    #first_name{
+      padding: 7px;
+      height: 30px;
+      width: 400px;
+      border-radius: 20px;
+      font-size: 22px;
+    }
+    #last_name{
+      padding: 7px;
+      border-radius: 20px;
+      height: 30px;
+      width: 400px;
+      font-size: 22px;
+    }
+    #email{
+      height: 30px;
+      padding: 7px;
+      width: 400px;
+      font-size: 22px;
+      border-radius: 20px;
+    }
+    #password{
+      width: 400px;
+      height: 30px;
+      padding: 7px;
+      border-radius: 20px;
+      font-size: 22px;
+    }
+    #passwordagain{
+      height: 30px;
+      border-radius: 20px;
+      width: 400px;
+      padding: 7px;
+      font-size: 22px;
+    }
+    #register_form{
+      background-size:cover;
+      background-image: linear-gradient(to right, rgba(3, 14, 18, 0.525),rgba(104, 127, 209, 0.426));
+      width: 550px;
+      display: flex;
+      font-size: 10px;
+      justify-self: center;
+      align-self: center;
+      justify-content: center;
+      padding: 10px;
+      height: 650px;
+    } 
+    #user_name{
+      height: 30px;
+      border-radius: 20px;
+      width: 400px;
+      padding: 7px;
+      font-size: 22px;
+    }
+    #header{
+      font-size: 2.3em;
+      color: greenyellow;
+    }
+    label{
+      font-size: 25px;
+      font-weight: 600;
+      font-family: Arial, Helvetica, sans-serif;
+      color: white;
+    }
+    #submit{
+      width: 250px;
+      margin-top: 6%;
+      background-color: rgb(18, 170, 18);
+      height: 45px;
+      color: white;
+      border-radius: 5px;
+      font-weight: 700;
+      font-size: 24px;
+    }
+    
+  </style>
+        
+        
+        <div id="logoutcontainer" ><a style="text-decoration: none; " id="logout" href="/login/" type="submit">Login</a></div>
+      
+
+        <form action="" id="register_form" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+          <div align="center">
+          <br>
+          <br>
+          {% if messages %}
+            {% for msg in messages %}
+             <h1 style="color: rgb(245, 255, 53); font-weight: 700;">{{msg}}</h1>
+            {% endfor %}
+          {% endif %}
+            <label for="">Username</label>
+            <div id="user_name"><input placeholder="Enter your Username" required type="text" name="user_name" id="user_name"></div>
+            <br>
+            <br>
+            <label for="">First Name</label>
+            <div id="first_name"><input placeholder="First Name" type="text" required name="first_name" id="first_name"></div>
+                    
+            <br>
+            <br>
+            <label for="">Last Name</label>
+           
+            <div id="last_name"><input placeholder="Last Name" type="text" required name="last_name" id="last_name"></div>
+            
+            <br>
+            <br>
+            <label for="">Email</label>
+
+            <div id="email"><input placeholder="Enter your Email" type="email" required name="email" id="email"></div>
+            
+            <br>
+            <br>
+            <label for="">password</label>
+            <div id="password"><input placeholder="Create a password" required type="password" name="password" id="password"></div>
+            <br>
+            <br>
+            <label for="">password</label>
+            <div id="passwordagain"><input placeholder="Re-enter your password" type="password" required name="passwordagain" id="passwordagain"></div>
+            <button id="submit" type="submit">Create account</button>
+          </div></form>
+
+
+</body>
+</html>

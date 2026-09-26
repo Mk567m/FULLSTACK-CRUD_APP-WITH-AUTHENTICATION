@@ -1,0 +1,144 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Django's product page</title>
+
+</head>
+
+<body>
+ 
+    <style>
+       html{
+    background-image: linear-gradient(to left, rgb(37, 166, 236), rgb(122, 16, 176));
+  }
+      .image-container img{
+        width: 100%;
+        transition: transform 1.2s;
+      }
+      .image-container img:focus{
+        transform: scale(1.6);
+        outline: none;
+      }
+      form{
+        background-image: linear-gradient(to right, rgb(220, 118, 23),rgb(114, 19, 191));
+        margin-right: 33%;
+        margin-left: 12%;
+        width: 720px; 
+        height: 630px;
+        margin-left:24%;
+        border-radius: 40px;
+        border: 18px solid aliceblue;
+        border-style: ridge;
+      }
+      #product_name{
+        text-align: center;
+        
+        
+        border-radius: 40px;
+        margin-left: 13%;
+        margin-top: 3px;
+        font-size: 17px;
+        padding: 15px;
+        border: 10px solid rgb(162, 103, 226);
+        display: inline;
+        align-items: center;
+        width: 390px;
+        justify-content: center;
+        text-align: center;
+        
+        
+      }
+      #product_description{
+        font-family: Arial, Helvetica, sans-serif;
+        margin-right: 0%;
+        margin-left:12%;
+        font-size: 15px;
+        width: 400px;
+        height: 200px;
+        border: 12px solid rgb(162, 103, 226);
+        border-radius: 15px;
+        padding: 14px;
+        
+        
+
+      }
+      
+      #product_image{
+        margin-left: 17%;
+        margin-right: 23%;
+        border: 5px solid rgb(189, 117, 221);
+        font-size: 18px;
+        border-radius: 30px;
+        padding: 10px;
+        display: inline;
+
+      }
+      table{
+        border: 3px solid rgb(84, 202, 235);
+        color: black;
+        border-collapse:collapse;
+        background-image: linear-gradient(to right, rgb(251, 249, 249),rgb(103, 96, 96));
+        width: 90%;
+        height: 50%;
+        
+
+      }
+      
+      
+      #Add_product{
+        font-size: 23px;
+        width: 200px;
+        border: 12px solid rgb(162, 103, 226);
+        border-radius: 30px;
+        height: 50px;
+        background-color: rgb(202, 174, 227);
+        text-align: center;
+        margin-right: 26%;
+        border: 2px solid yellow;
+        margin-left:28%;
+        height: 80px;
+        
+        
+      }      
+      #headers{
+        padding: 12px;
+      }
+      
+      #delbutton{
+        font-size: 20px;
+        
+        color: rgb(9, 5, 5);
+        border: 2px solid rgb(64, 64, 229);
+        
+      }
+      
+    </style>
+  
+  <h1 align="center">Remove or Change your Product!</h1>
+  
+  
+  <form  enctype="multipart/form-data" method="post" >
+    {% csrf_token %}
+
+    <br>
+    <div id="divname">
+    <input type="text" name="product_name" value="{{update.product_name}}"  required placeholder="Enter Product name" id="product_name"></div>
+    <br>
+    <br>
+    
+    <div id="divdescription">
+    <textarea align="center" required placeholder="Write something about your product!" name="product_description" id="product_description">{{update.product_description}}</textarea></div>
+    
+    <h2 align="center">IMAGE: {{update.product_image}}</h2>
+    <input align="center" type="file" value="{{ update.product_image }}" alt="{{update.product_image}}"  name="product_image" id="product_image">
+    
+    <div id="divbutton">
+  <br>
+     <button id="Add_product" type="submit" name="update_product" > Save Changes </button></div>
+  </form>
+<br>
+<br>
+<br>

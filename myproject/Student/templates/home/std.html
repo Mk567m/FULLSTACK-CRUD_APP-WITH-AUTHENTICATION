@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student</title>
+</head>
+<body>
+      <style>
+        label{
+          font-size: xx-large;
+          color: rgb(252, 251, 255);
+          font-weight: 700;
+        }
+        html{
+          background-image: linear-gradient(to right, rgb(54, 155, 188), orange);
+        }
+            #name{
+              font-size: x-large;
+              font-weight: 400;
+              width: 25%;
+              font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+              border-radius: 5px;
+              background-color: rgb(122, 252, 110);
+              border-color: rgb(245, 147, 43);
+              border-style: inset;
+            }
+            input[type="text"], input[type="number"] {
+              width: 25%;
+              padding: 5px;
+              margin: 4px 0;
+              box-sizing: border-box;
+              font-size: x-large;
+              font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+              border-radius: 5px;
+              border-color: rgb(245, 147, 43);
+              border-style: inset;
+            }
+            #btn:hover{
+              font-size: 45px;
+              
+              background-color: rgb(113, 49, 240);
+              color: white;
+              
+              box-shadow: 0 0 20px rgba(222, 222, 222, 0.5);
+              grid-auto-flow: column;
+              animation: 0.5s ease-in-out;
+              transform: scaleX();
+              transition: transform .3s ease;
+              animation-delay: 1s;
+            }
+            #btn{
+              font-size: xx-large;
+              background-image:linear-gradient(to left,rgb(71, 190, 61), rgb(178, 75, 75));
+              width:25%;
+              
+              padding: 10px;
+              margin-bottom: 10px;
+              border-style:outset;
+              font-weight: 600;
+              font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+              border-radius: 10px;
+              color:white;
+              border-width: 8px;
+              border-color: rgb(252, 168, 94);
+              
+            }
+
+            #age{
+              font-size: x-large;
+              background-color: rgb(122, 252, 110);
+              font-weight: 400;
+              width: 19%;
+              text-align: center;
+              font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+              border-radius: 5px;
+              border-color: aquamarine;
+              border-style: inset;
+            }
+            #address{
+              font-size: x-large;
+              text-align: left;
+              font-weight: 400;
+              background-color: rgb(122, 252, 110);
+              height: 10%;
+              font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+              border-radius: 5px;
+              width: 35%;
+              border-color: aquamarine;
+              border-style: inset;
+            }
+            #form{
+              background-image:linear-gradient(to left,rgb(135, 39, 220),rgb(202, 42, 93)) ;
+              padding: 20px;
+              border-radius: 10px;
+              box-shadow: 0 30px 20px rgba(0,0,0,0.1);
+            }
+            
+      </style>
+      <h2 align="center"><a href="product">Click to order a PRODUCT</a></h2>
+
+    <h1 style="font-size: 3.5em;" align="center">Django student</h1>
+
+    <form method="post" align="center" style="
+     height: 40%; margin-right: 20%;margin-left: 20%;">
+      {% csrf_token %}
+      <div id="form">
+      <label for="name" align="center">Name:</label>
+      <br>
+      <input type="text" id="name" name="name" placeholder="Enter your Name" required>
+      <br>
+      <br>
+
+      <label for="age" align="center">Age:</label>
+      <br>
+      <input type="number" id="age" name="age" placeholder="Enter your age" required>
+      <br>
+      <br>
+
+      <label for="Address" align="center">Address:</label>
+      <br>
+      <textarea type="text" id="address" name="address" placeholder="Enter your Address" required> </textarea>
+      <br>
+      <br>
+
+      
+
+      <button id="btn" name="button" value="submit"  type="submit">SUBMIT</button>
+      </div>
+      <br>
+    
+    </form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Django Students page</title>
+</head>
+<body>
+    <style>
+      html{
+        background-image: linear-gradient(to right, lightblue,lightgreen);
+      }
+      #name{
+        display: inline-block;
+        font-size: x-large;
+        padding: 3px;
+        font-weight: 400;
+        text-align: center;
+        margin-right: 40%;
+        color: black;
+        border-radius: 10px;
+        border-style:ridge;
+        margin-top: 5px;
+        margin-left: 40%;
+        background-image: linear-gradient(to right, rgb(244, 110, 163), rgb(114, 255, 71));
+      }
+       
+      
+      #class{
+        display: inline-block;
+        font-size: x-large;
+        margin-top: 5px;
+        padding: 3px;
+        font-weight: 400;
+        text-align: center;
+        margin-right: 40%;
+        color: black;
+        border-radius: 10px;
+        border-style:ridge;
+        
+        margin-left: 40%;
+        background-image: linear-gradient(to right, rgb(244, 110, 163), rgb(114, 255, 71));
+      }
+      #age{
+        display: inline-block;
+        font-size: x-large;
+        padding: 3px;
+        font-weight: 400;
+        margin-top: 5px;
+        text-align: center;
+        margin-right: 40%;
+        color: black;
+        border-radius: 10px;
+        border-style:ridge;
+        
+        margin-left: 40%;
+        background-image: linear-gradient(to right, rgb(244, 110, 163), rgb(114, 255, 71));
+      }
+           
+          
+
+
+    </style>
+
+
+<h1 align="center">Welcome to Django school and College!</h1>
+
+  {% for student in std %}
+<table >
+  <div>    
+  <tr >
+    <th>ID</th>
+    <th>Student's Name</th>
+    <th>Student's Age</th>
+    <th>Student's Address</th>
+    <th>Student's Roll-number</th>
+    
+  </tr>
+  <tr>
+    <td>{{forloop.counter}}</td>
+    <td>{{student.name}}</td>
+    <td>{{student.Class}}</td>
+    <td>{{student.age}}</td>
+    <td>{{student.Address}}</td>
+    <td>{{student.roll_no}}</td>
+    
+  </tr>
+    </div>
+</table>   
+{% endfor %}
+
+<br>
+<br>
+<br>
+<hr>
+<br>
+      <br>
+      <br>
+ 
+    <form% {% csrf_token %} method='post' enctype="multipart/form-data">
+      
+      <div><h1  style="background-image: linear-gradient(to right, blue,black);color:
+       white;font-size: 3em;margin-right: 35%;margin-left: 35%;" align="center">Enter your Info</h2></div>
+      
+      <br>
+      <br>
+      
+      <label id="name" for="name" >Name: </label>
+      <input id="name" name="name" type="text" placeholder="Enter your name">
+
+      <label id="class" for="Class">Class: </label>
+      <input id="class" name="Class" type="text" name="Class"  placeholder="Enter your grade or Class">
+
+      <label id="age" for="age">Age: </label>
+      <input  type="number" name="age" id="age" placeholder="Enter your age">
+
+      
+    </form>
+   
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </table>
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
