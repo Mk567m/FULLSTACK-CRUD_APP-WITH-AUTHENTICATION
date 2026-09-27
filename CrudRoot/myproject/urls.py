@@ -26,7 +26,7 @@ from CrudApp.models import *
 urlpatterns = [
     path('admin/', admin.site.urls),    
     
-    path('<str:pk>', views.delete_product,name='delete_product'),
+    path('<int:pk>', views.delete_product,name='delete_product'),
     path('',views.product,name='product'),
     path('<int:pk>/',views.update_product,name='update_product'),
     path('login/',views.login_view,name='login_view'),

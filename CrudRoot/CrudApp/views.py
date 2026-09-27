@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from CrudApp.models import *
 from django.contrib.auth import login,authenticate,logout
 from django.contrib.auth.models import User
@@ -35,18 +35,18 @@ def product(request):
 
 
 ######delete product button functionality
-def delete_product(pk):
-      print(pk)
+def delete_product(request,pk):
       product = Product.objects.get(id=pk)
       product.delete()
       Context={"product":product}
       
-      return redirect('/product/',context=Context)
+      return redirect('/',context=Context)
 
 
 ######## update button functionality
 def update_product(request,pk):
-  pdct =Product.objects.get(id=pk)
+  pdct =get_object_or_404(Product,id=pk)
+  
   Context = {'update':pdct}
   
   if request.method=='POST':
@@ -55,6 +55,7 @@ def update_product(request,pk):
     updated_name = data.get('product_name')
     updated_description = data.get('product_description')
     updated_image = request.FILES.get('product_image')
+    print('-------------------',updated_image)
 
     
 
@@ -64,7 +65,7 @@ def update_product(request,pk):
     
     pdct.save()
 
-    return redirect('')
+    return redirect('/')
 
   
   return render(request,'home/update.html',context=Context)

@@ -15,14 +15,14 @@
     background-image: linear-gradient(to left, rgb(37, 166, 236), rgb(122, 16, 176));
   }
       .image-container img{
+        background-size:contain;
+        background-repeat:no-repeat;
+        
         width: auto;
-        height: 100px;
-        transition: transform 1s;
+        height: 300px;
+        transition: transform 0.6s;
       }
-      .image-container img:focus{
-        transform: scale(2.3);
-        outline:none;
-      }
+      
       #fields{
         background-image: linear-gradient(to right, rgb(220, 118, 23),rgb(114, 19, 191));
         margin-right: 20%;
@@ -31,7 +31,7 @@
         margin-left:25%;
         
         border-radius: 40px;
-        border: 18px solid aliceblue;
+        border: none;
         border-style: ridge;
       }
       
@@ -39,12 +39,12 @@
         text-align: center;
         
         
-        border-radius: 40px;
+        border-radius: 20px;
         margin-left: 18%;
         margin-top: 3px;
         font-size: 17px;
         padding: 15px;
-        border: 10px solid rgb(162, 103, 226);
+        border: none;
         display: inline;
         align-items: center;
         width: 390px;
@@ -60,8 +60,8 @@
         font-size: 15px;
         width: 400px;
         height: 200px;
-        border: 12px solid rgb(162, 103, 226);
-        border-radius: 15px;
+        border: none;
+        border-radius: 10px;
         padding: 14px;
         
         
@@ -71,11 +71,12 @@
       #product_image{
         margin-left: 24%;
         margin-right: 23%;
-        border: 5px solid rgb(189, 117, 221);
+        border: none;
         font-size: 18px;
-        border-radius: 30px;
+        border-radius: 10px;
         padding: 10px;
         display: flex;
+        border: 2px solid black;
 
       }
       table{
@@ -93,10 +94,10 @@
       #Add_product{
         font-size: 23px;
         width: 200px;
-        border: 12px solid rgb(162, 103, 226);
+        border: none;
         border-radius: 30px;
         height: 50px;
-        background-color: rgb(202, 174, 227);
+      
         text-align: center;
         margin-right: 26%;
         border: 8px outset yellow;
@@ -115,12 +116,8 @@
         padding: 12px;
       }
       #tableimage{
-        display: flex;
-        width: 250px;
-        justify-content: center;
-        align-self: center;
-        height: 180px;
-        justify-self: center;
+        ]
+
       }
       #searchbar{
         background-color: rgba(255, 255, 255, 0.929);
@@ -297,15 +294,15 @@
   </tbody>  
   <tbody>
   
-    {% for product in product %}
+    {% for pdct in product %}
     
     <tr id="specifics">
       <td scope="row">{{forloop.counter}}</td>
-      <td>{{product.product_name}}</td>
-      <td>{{product.product_description}}</td>
+      <td>{{pdct.product_name}}</td>
+      <td>{{pdct.product_description}}</td>
       <td>
-        {% if product.product_image %}
-       <div class="image-container"> <img id="tableimage" src="{{product.product_image.url}}" name="product_image" alt="{{product.product_image.url}}" tabindex="0"></div>
+        {% if pdct.product_image %}
+       <div class="image-container"> <img id="tableimage" src="{{pdct.product_image.url}}" name="product_image" alt="{{pdct.product_image.url}}" tabindex="0"></div>
         {%else%}
         <div style="background-color: rgb(236, 244, 247);width:  252px; height: 90px;
         padding-top: 10%;display: block;justify-self: center;"><p style="text-align: center;color: rgb(4, 3, 3);font-size: 24px;font-weight: 500;">No image Given</p></div>
@@ -318,12 +315,12 @@
         {% csrf_token %}
         <td 
          
-         id="delbutton" ><a id="delete_button" href="{% url 'delete_product' product.id%}" class="btn btn-danger">delete</a>
+         id="delbutton" ><a id="delete_button" href="{% url 'delete_product' pdct.id%}" class="btn btn-danger">delete</a>
 
         </td>
         <td 
          
-         id="update_container" ><a id="update_button" href="{% url 'update_product' product.id%}" class="btn btn-success">update</a>
+         id="update_container" ><a id="update_button" href="{% url 'update_product' pdct.id%}" class="btn btn-success">update</a>
         </td>
     </tr>
         {%endfor%}  

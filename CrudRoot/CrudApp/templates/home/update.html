@@ -98,9 +98,15 @@
     
     <div id="divdescription">
     <textarea align="center" required placeholder="Write something about your product!" name="product_description" id="product_description">{{update.product_description}}</textarea></div>
+    {% if update.product_image %}
+    <h3 align="center">Current image: <img align="center" width="100px" height="120px" src="{{update.product_image.url}}" alt="{{update.product_image}}"></h3>
+    <input align="center" type="file"   name="product_image" id="product_image">
+    {%else%}
+    <input align="center" type="file"   name="product_image" id="product_image">
+    <h2 align='center'>No image Chosen<h2/>
+
+    {%endif%}  
     
-    <h2 align="center"></h2>
-    <input align="center" type="file" value="{{ update.product_image }}" alt="{{update.product_image}}"  name="product_image" id="product_image">
     
     <div id="divbutton">
   <br>
